@@ -42,7 +42,7 @@ class MysqlEngine(object):
         self.session = None
 
     def get_connect(self):
-        connection = 'mysql+pymysql://{0}:{1}@{2}:{3}/{4}'
+        connection = 'mysql+pymysql://{0}:{1}@{2}:{3}/{4}?charset=utf8'
         connection = connection.format(self._user, self._password, self._host, self._port, self._db_name)
         return connection
 
