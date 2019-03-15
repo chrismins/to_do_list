@@ -4,7 +4,7 @@ import requests
 
 
 class SmsTest(TestCase):
-    def test_sent_message(self):
+    def test_register(self):
         url = "http://127.0.0.1:8000/register"
         datas = {
             "user_name": "王五",
@@ -32,4 +32,15 @@ class SmsTest(TestCase):
         }
         result = requests.get(url, data=data)
         print(str(result.content, encoding='utf-8'))
+
+    def test_login(self):
+        url = "http://127.0.0.1:8000/login"
+        datas = {
+            "user_name": "王五",
+            "password": "786346"
+        }
+        result = requests.post(url=url, data=datas)
+        print(result)
+        # result.json()
+        # print(url)
 

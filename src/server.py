@@ -2,6 +2,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from handler import main as main_blueprint
 from db import main_db_engine
+from flask_login import LoginManager
 # from flask_redis import FlaskRedis
 # from setting import redis_setting
 
@@ -10,6 +11,8 @@ app = Flask(__name__)
 
 # 注册handle
 app.register_blueprint(main_blueprint)
+login_manger = LoginManager()
+login_manger.init_app(app)
 
 # 初始化数据库
 database_engine = main_db_engine
