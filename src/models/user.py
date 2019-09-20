@@ -1,9 +1,10 @@
 from sqlalchemy import Column, String, Integer, DateTime, text
 from libs.database.mysql import BaseModel
 from sqlalchemy.dialects.mysql.types import TINYINT
+from flask_login import UserMixin
 
 
-class User(BaseModel):
+class User(BaseModel, UserMixin):
     __tablename__ = 'user'
 
     user_id = Column(String(40), primary_key=True)
@@ -24,3 +25,7 @@ class User(BaseModel):
     def __init__(self, **kwargs):
         super(User, self).__init__(**kwargs)
         self.status = 0
+
+    def get_id(self):
+        # user_id = kwargs.get("user_id")
+        return self.user_id

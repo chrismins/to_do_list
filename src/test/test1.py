@@ -7,8 +7,8 @@ class SmsTest(TestCase):
     def test_register(self):
         url = "http://127.0.0.1:8000/register"
         datas = {
-            "user_name": "王五",
-            "password": "786346",
+            "user_name": "test222",
+            "password": "123456",
             "mobile": 18625006875,
             "verify_code": 946283
         }
